@@ -3131,6 +3131,10 @@ ul.sfsi_icn_listing8 li .tb_4_ck{
     text-decoration: none!important;
     box-shadow: none!important;
 }
+.sfsi_responsive_icons *{
+    box-shadow: none!important;
+}
+
 .sfsi_responsive_icons .sfsi_responsive_icon_facebook_container{ background-color:#336699;}
 .sfsi_responsive_icons .sfsi_responsive_icon_follow_container{ background-color:#00B04E;}
 .sfsi_responsive_icons .sfsi_responsive_icon_twitter_container{ background-color:#55ACEE;}

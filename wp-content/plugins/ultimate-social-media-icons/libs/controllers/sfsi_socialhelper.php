@@ -423,7 +423,7 @@ class sfsi_SocialHelper
 		}
 		
 		/*if date is empty (for decrease request count)*/
-		if(empty($sfsi_instagram_sf_count["date_sf"]))
+		if(isset($sfsi_instagram_sf_count["date_sf"]) && empty($sfsi_instagram_sf_count["date_sf"]))
 		{
 			$sfsi_instagram_sf_count["date_sf"] = strtotime(date("Y-m-d"));
 			$counts = $this->SFSI_getFeedSubscriberCount($feedid);

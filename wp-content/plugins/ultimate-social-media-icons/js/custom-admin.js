@@ -1865,6 +1865,23 @@ SFSI(document).ready(function (s) {
         sfsi_dismiss_notice(valueObj.btnClass, valueObj.action);
     });
 
+    var sfsi_show_option1 = SFSI('input[name="sfsi_show_via_widget"]:checked').val()||'no';
+    var sfsi_show_option2 = SFSI('input[name="sfsi_icons_float"]:checked').val()||'no';
+    var sfsi_show_option3 = SFSI('input[name="sfsi_show_via_shortcode"]:checked').val()||'no';
+    var sfsi_show_option4 = SFSI('input[name="sfsi_show_via_afterposts"]:checked').val()||'no';
+
+    // console.log(sfsi_show_option1);
+    // console.log(sfsi_show_option2);
+    // console.log(sfsi_show_option3);
+    // console.log(sfsi_show_option4);
+
+    if(sfsi_show_option1=="no" && sfsi_show_option2=='no' && sfsi_show_option3 =='no' && sfsi_show_option4 == 'no'){
+        console.log('should open');
+        setTimeout(function(){
+            SFSI('#ui-id-5').click();    
+        },8000);
+    }
+
     //changes done {Monad}
     SFSI(".tab_3_icns").on("click", ".cstomskins_upload", function () {
         SFSI(".cstmskins-overlay").show("slow", function () {
@@ -1888,8 +1905,9 @@ SFSI(document).ready(function (s) {
     SFSI(document).on("click", '.radio', function () {
 
         var s = SFSI(this).parent().find("input:radio:first");
+        var inputName = s.attr("name"); 
+        console.log(inputName);
 
-        var inputName = s.attr("name");
         var inputChecked = s.attr("checked");
 
         switch (inputName) {
@@ -1916,8 +1934,6 @@ SFSI(document).ready(function (s) {
                 else
                     SFSI('input[name="sfsi_icons_suppress_errors"][value="no"]').attr('checked', 'true');
                 break;
-
-            default:
             case 'sfsi_responsive_icons_end_post':
                 if("yes" == s.val()){
                     jQuery('.sfsi_responsive_icon_option_li.sfsi_responsive_show').show();
@@ -3323,14 +3339,14 @@ function sfsi_resize_icons_container() {
 }
 
 function sfsi_togglbtmsection(show, hide, ref) {
-    console.log(show,hide);
+    // console.log(show,hide);
     jQuery(ref).parent("ul").children("li.clckbltglcls").each(function (index, element) {
         jQuery(this).children(".radio").css("background-position", "0px 0px");
         jQuery(this).children(".styled").attr("checked", "false");
     });
     jQuery(ref).children(".radio").css("background-position", "0px -41px");
     jQuery(ref).children(".styled").attr("checked", "true");
-    console.log(show,hide);
+    // console.log(show,hide);
 
     jQuery("." + show).show();
     jQuery("." + show).children(".radiodisplaysection").show();
@@ -3341,3 +3357,16 @@ jQuery(document).ready(function(){
     var sfsi_functions_loaded =  new CustomEvent('sfsi_functions_loaded',{detail:{"abc":"def"}});
     window.dispatchEvent(sfsi_functions_loaded);
 });
+
+function sfsi_show_responsive(){
+    var icon_type = jQuery('input[name="sfsi_display_button_type"]:checked').val();
+    var responsive_show = jQuery('input[name="sfsi_responsive_icons_end_post"]:checked').val();
+    setTimeout(function(){
+        // console.log(icon_type, responsive_show,icon_type=="responsive_button" && responsive_show=="yes");
+        if(icon_type=="responsive_button" && responsive_show=="yes"){
+            jQuery('.sfsi_responsive_icon_option_li.sfsi_responsive_show').show();
+        }else{
+            jQuery('.sfsi_responsive_icon_option_li.sfsi_responsive_show').hide();
+        }
+    },100);
+}

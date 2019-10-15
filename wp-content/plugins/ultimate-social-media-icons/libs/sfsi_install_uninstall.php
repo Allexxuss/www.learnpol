@@ -39,7 +39,7 @@ function sfsi_update_plugin()
         update_option("sfsi_custom_icons", "yes");
     }
     //Install version
-    update_option("sfsi_pluginVersion", "2.42");
+    update_option("sfsi_pluginVersion", "2.43");
 
     if (!get_option('sfsi_serverphpVersionnotification')) {
         add_option("sfsi_serverphpVersionnotification", "yes");
@@ -483,7 +483,7 @@ function sfsi_update_plugin()
             $option6['sfsi_rectfb'] = 'yes';
         }
         if (!isset($option6['sfsi_display_button_type'])) {
-            $option6["sfsi_display_button_type"] = 'standard_buttons';
+            $option6["sfsi_display_button_type"] = 'responsive_button';
         }
         if (!isset($option6['sfsi_share_count'])) {
             $option6["sfsi_share_count"] = 'no';
@@ -860,7 +860,7 @@ function sfsi_activate_plugin()
             'sfsi_recttwtr' => 'yes',
             'sfsi_rectpinit' => 'yes',
             'sfsi_rectfbshare' => 'yes',
-            'sfsi_display_button_type' => 'standard_buttons',
+            'sfsi_display_button_type' => 'responsive_button',
             'sfsi_responsive_icons_end_post' => 'no',
             'sfsi_share_count' => 'no',
             "sfsi_responsive_icons" => $sfsi_responsive_icons_default
